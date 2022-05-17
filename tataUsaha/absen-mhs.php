@@ -19,8 +19,11 @@ $level_tu = $_SESSION['level'] == 'tata_usaha';
 if ($level_mhs) {
   $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='mahasiswa' AND username='$username'");
 }
-if (!$level_mhs) {
+if ($level_dsn) {
   $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='mahasiswa'");
+}
+if ($level_tu) {
+  $query = mysqli_query($conn, "SELECT * FROM history_in");
 }
 
 

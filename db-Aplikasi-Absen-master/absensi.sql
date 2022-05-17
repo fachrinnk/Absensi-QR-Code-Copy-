@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Des 2020 pada 06.14
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.8
+-- Generation Time: May 17, 2022 at 10:42 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `history_in`
+-- Table structure for table `history_in`
 --
 
 CREATE TABLE `history_in` (
@@ -35,7 +35,7 @@ CREATE TABLE `history_in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `history_in`
+-- Dumping data for table `history_in`
 --
 
 INSERT INTO `history_in` (`id_masuk`, `date_masuk`, `username`, `level_user`) VALUES
@@ -237,12 +237,17 @@ INSERT INTO `history_in` (`id_masuk`, `date_masuk`, `username`, `level_user`) VA
 (344, '2020-12-17 09:25:18', 'riansyah', 'mahasiswa'),
 (345, '2020-12-17 09:30:01', 'tama', 'mahasiswa'),
 (347, '2020-12-17 12:13:29', 'adi', 'mahasiswa'),
-(348, '2020-12-17 12:13:40', 'pragus', 'mahasiswa');
+(348, '2020-12-17 12:13:40', 'pragus', 'mahasiswa'),
+(349, '2022-05-07 20:30:08', 'aji', 'tata_usaha'),
+(350, '2022-05-07 20:32:12', 'fara', 'mahasiswa'),
+(351, '2022-05-07 21:17:14', 'rangga', 'mahasiswa'),
+(352, '2022-05-07 21:22:34', 'putri', 'mahasiswa'),
+(353, '2022-05-17 14:39:27', 'putri', 'mahasiswa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `history_out`
+-- Table structure for table `history_out`
 --
 
 CREATE TABLE `history_out` (
@@ -252,18 +257,26 @@ CREATE TABLE `history_out` (
   `level_user` enum('mahasiswa','dosen','tata_usaha','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `history_out`
+--
+
+INSERT INTO `history_out` (`id_out`, `date_out`, `username`, `level_user`) VALUES
+(5, '2022-05-07 22:02:15', 'rangga', 'mahasiswa'),
+(6, '2022-05-17 14:31:27', 'putri', 'mahasiswa');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `createDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `createBy` varchar(10) NOT NULL,
+  `createDate` timestamp NULL DEFAULT current_timestamp(),
+  `dateCheckout` timestamp NULL DEFAULT current_timestamp(),
   `IsActive` int(10) NOT NULL,
   `IsLogin` int(10) NOT NULL,
   `nim` varchar(15) NOT NULL,
@@ -271,74 +284,79 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id`, `username`, `password`, `createDate`, `createBy`, `IsActive`, `IsLogin`, `nim`, `level_user`) VALUES
-(6, 'rachmat', 'rachmat', '2020-11-19 15:17:14', 'admin', 1, 0, '3311801036', 'mahasiswa'),
-(16, 'tama', 'tama', '2020-11-20 06:47:28', 'admin', 1, 0, '3311801090', 'mahasiswa'),
-(17, 'resa', 'resa', '2020-11-20 08:45:53', 'admin', 1, 0, '3311801056', 'mahasiswa'),
-(20, 'fara', 'fara', '2020-11-21 01:04:56', 'admin', 1, 0, '3311801039', 'mahasiswa'),
-(21, 'mustanir', 'mustanir', '2020-11-30 03:59:48', 'admin', 1, 0, '120240', 'tata_usaha'),
-(22, 'hidayat', 'hidayat', '2020-11-30 05:50:33', 'admin', 1, 0, '3311801098', 'mahasiswa'),
-(26, 'anawati', 'anawati', '2020-11-30 05:54:33', 'admin', 1, 0, '123213123', 'mahasiswa'),
-(27, 'pragus', 'pragus', '2020-11-30 05:58:10', 'admin', 1, 0, '32121', 'mahasiswa'),
-(28, 'garda', 'garda', '2020-11-30 05:59:01', 'admin', 1, 0, '213132', 'mahasiswa'),
-(29, 'riansyah', 'riansyah', '2020-11-30 06:01:43', 'admin', 1, 0, '2132133', 'mahasiswa'),
-(30, 'widya', 'widya', '2020-12-01 01:52:16', 'admin', 1, 0, '321212', 'mahasiswa'),
-(31, 'diana', 'diana', '2020-12-01 01:53:35', 'admin', 1, 0, '12321', 'mahasiswa'),
-(32, 'garda', 'garda', '2020-12-01 01:55:19', 'admin', 1, 0, '342423', 'mahasiswa'),
-(33, 'adi', 'adi', '2020-12-01 01:55:37', 'admin', 1, 0, '5464564', 'mahasiswa'),
-(34, 'fajar', 'fajar', '2020-12-01 08:44:36', 'admin', 1, 0, '2133213', 'mahasiswa'),
-(35, 'rangga', 'rangga', '2020-12-01 08:44:48', 'admin', 1, 0, '213213213', 'mahasiswa'),
-(36, 'liza', 'liza', '2020-12-01 08:44:58', 'admin', 1, 0, '123213124', 'mahasiswa'),
-(37, 'putri', 'putri', '2020-12-01 08:45:13', 'admin', 1, 0, '213214342', 'mahasiswa'),
-(38, 'tessha', 'tessha', '2020-12-01 08:45:34', 'admin', 1, 0, '4534453', 'mahasiswa'),
-(41, 'nina', 'nina', '2020-12-07 05:10:35', 'admin', 1, 0, '213213121', 'tata_usaha');
+INSERT INTO `tb_user` (`id`, `username`, `password`, `createDate`, `dateCheckout`, `IsActive`, `IsLogin`, `nim`, `level_user`) VALUES
+(6, 'rachmat', 'rachmat', '2020-11-19 15:17:14', '2022-05-07 14:56:53', 1, 0, '3311801036', 'mahasiswa'),
+(16, 'tama', 'tama', '2020-11-20 06:47:28', '2022-05-07 14:56:53', 1, 0, '3311801090', 'mahasiswa'),
+(17, 'resa', 'resa', '2020-11-20 08:45:53', '2022-05-07 14:56:53', 1, 0, '3311801056', 'mahasiswa'),
+(20, 'fara', 'fara', '2022-05-07 13:32:12', '2022-05-07 14:56:53', 1, 0, '3311801039', 'mahasiswa'),
+(21, 'mustanir', 'mustanir', '2020-11-30 03:59:48', '2022-05-07 14:56:53', 1, 0, '120240', 'tata_usaha'),
+(22, 'hidayat', 'hidayat', '2020-11-30 05:50:33', '2022-05-07 14:56:53', 1, 0, '3311801098', 'mahasiswa'),
+(26, 'anawati', 'anawati', '2020-11-30 05:54:33', '2022-05-07 14:56:53', 1, 0, '123213123', 'mahasiswa'),
+(27, 'pragus', 'pragus', '2020-11-30 05:58:10', '2022-05-07 14:56:53', 1, 0, '32121', 'mahasiswa'),
+(28, 'garda', 'garda', '2020-11-30 05:59:01', '2022-05-07 14:56:53', 1, 0, '213132', 'mahasiswa'),
+(29, 'riansyah', 'riansyah', '2020-11-30 06:01:43', '2022-05-07 14:56:53', 1, 0, '2132133', 'mahasiswa'),
+(30, 'widya', 'widya', '2020-12-01 01:52:16', '2022-05-07 14:56:53', 1, 0, '321212', 'mahasiswa'),
+(31, 'diana', 'diana', '2020-12-01 01:53:35', '2022-05-07 14:56:53', 1, 0, '12321', 'mahasiswa'),
+(32, 'garda', 'garda', '2020-12-01 01:55:19', '2022-05-07 14:56:53', 1, 0, '342423', 'mahasiswa'),
+(33, 'adi', 'adi', '2020-12-01 01:55:37', '2022-05-07 14:56:53', 1, 0, '5464564', 'mahasiswa'),
+(34, 'fajar', 'fajar', '2020-12-01 08:44:36', '2022-05-07 14:56:53', 1, 0, '2133213', 'mahasiswa'),
+(35, 'rangga', 'rangga', '2022-05-07 14:17:14', '2022-05-07 15:02:15', 1, 0, '213213213', 'mahasiswa'),
+(36, 'liza', 'liza', '2020-12-01 08:44:58', '2022-05-07 14:56:53', 1, 0, '123213124', 'dosen'),
+(37, 'putri', 'putri', '2022-05-17 07:39:27', '2022-05-17 07:31:27', 1, 0, '213214342', 'mahasiswa'),
+(38, 'tessha', 'tessha', '2020-12-01 08:45:34', '2022-05-07 14:56:53', 1, 0, '4534453', 'mahasiswa'),
+(41, 'nina', 'nina', '2020-12-07 05:10:35', '2022-05-07 14:56:53', 1, 0, '213213121', 'tata_usaha'),
+(42, 'arun', 'arun', '2022-04-09 08:00:06', '2022-05-07 14:56:53', 1, 0, '123543', 'mahasiswa'),
+(43, 'aji', 'aji', '2022-05-07 13:30:08', '2022-05-07 14:56:53', 1, 0, '22343', 'tata_usaha'),
+(44, 'fachri', 'fachri', '2022-05-07 13:45:26', '2022-05-07 14:56:53', 1, 0, '12312', 'tata_usaha'),
+(45, 'bina', 'bina', '2022-05-17 07:45:06', '2022-05-17 07:45:06', 1, 0, '231412', 'tata_usaha'),
+(46, 'raga', 'raga', '2022-05-17 07:53:42', '2022-05-17 07:53:42', 1, 0, '46375', 'dosen');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `history_in`
+-- Indexes for table `history_in`
 --
 ALTER TABLE `history_in`
   ADD PRIMARY KEY (`id_masuk`);
 
 --
--- Indeks untuk tabel `history_out`
+-- Indexes for table `history_out`
 --
 ALTER TABLE `history_out`
   ADD PRIMARY KEY (`id_out`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `history_in`
+-- AUTO_INCREMENT for table `history_in`
 --
 ALTER TABLE `history_in`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
 
 --
--- AUTO_INCREMENT untuk tabel `history_out`
+-- AUTO_INCREMENT for table `history_out`
 --
 ALTER TABLE `history_out`
-  MODIFY `id_out` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_out` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

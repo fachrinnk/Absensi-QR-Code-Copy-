@@ -5,7 +5,7 @@ include '../config/config.php';
 
 
 if (!isset($_SESSION['data'])) {
-    header("location:login.php");
+  header("location:login.php");
 }
 
 
@@ -15,11 +15,11 @@ $level_dsn = $_SESSION['level'] == 'dosen';
 $level_tu = $_SESSION['level'] == 'tata_usaha';
 
 
-if ($level_dsn) {
-    $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen' AND username='$username'");
+if ($level_dsn) { // check in saya
+  $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen' AND username='$username'");
 }
 if (!$level_dsn) {
-    $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen'");
+  $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen'");
 }
 
 ?>
@@ -56,6 +56,8 @@ if (!$level_dsn) {
     <div class="title">
       <h2>Absen Dosen</h2>
     </div>
+    <a href="export_data_in_dosen.php" target="_blank"><button class="btn text-white mb-2 download"><i
+          class="fas fa-download mr-2"></i>Download to Excel</button></a>
     <div class="table-responsive table-bordered">
       <table class="table">
         <tr class="bg-light text-dark">
@@ -68,8 +70,8 @@ if (!$level_dsn) {
           <td style="color:white;">
             <!-- start Logik - Get lastactivity from database -->
             <?php
-                            $date = date_create($data['date_masuk']);
-                            ?>
+              $date = date_create($data['date_masuk']);
+              ?>
             <!-- End Logik - Get lastactivity from database -->
             <?= date_format($date, 'l, j F Y g:ia'); ?>
           </td>

@@ -6,20 +6,21 @@ include '../config/config.php';
 header('Content-Type: application/vnd-ms-excel');
 header('Content-Disposition: attachment; filename=Data Absen.xls');
 
+
 $username = $_SESSION['username'];
 $level_mhs = $_SESSION['level'] == 'mahasiswa';
 $level_dsn = $_SESSION['level'] == 'dosen';
 $level_tu = $_SESSION['level'] == 'tata_usaha';
 
-if ($level_mhs) {
-    $dataAbsen = mysqli_query($conn, "SELECT * FROM history_out WHERE username='$username' ORDER BY id_out DESC");
+
+if ($level_dsn) { // check in saya
+  $dataAbsen = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen' AND username='$username'");
 }
-if ($level_dsn) {
-    $dataAbsen = mysqli_query($conn, "SELECT * FROM history_out WHERE level_user='mahasiswa' ORDER BY id_out DESC");
+if (!$level_dsn) {
+  $dataAbsen = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='dosen'");
 }
-if ($level_tu) {
-    $dataAbsen = mysqli_query($conn, "SELECT * FROM history_out ORDER BY id_out DESC");
-}
+
+
 
 
 ?>
@@ -30,7 +31,7 @@ if ($level_tu) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Export Data</title>
+  <title>Export Data Karyawan</title>
   <link rel="icon" href="../img/TFME.jpg">
 
 </head>
@@ -38,15 +39,15 @@ if ($level_tu) {
 <body>
 
   <center>
-    <h2>Absen Pulang</h2>
+    <h2>Absen Masuk</h2>
   </center>
 
-  <center>Data Absen</center>
+  <center>Data Absen Masuk Sekolah</center>
 
   <table border="1">
     <tr>
       <th>No</th>
-      <th>Nama</th>
+      <th>Nama Mahasiswa</th>
       <th>Tanggal</th>
       <th>Bulan</th>
       <th>Tahun</th>
@@ -58,7 +59,7 @@ if ($level_tu) {
       <td><?= $no; ?></td>
       <td><?= $mhs['username']; ?></td>
       <!-- // -->
-      <?php $date = date_create($mhs['date_out']); ?>
+      <?php $date = date_create($mhs['date_masuk']); ?>
       <td><?= date_format($date, "j"); ?></td>
       <td><?= date_format($date, "F"); ?></td>
       <td><?= date_format($date, "Y"); ?></td>

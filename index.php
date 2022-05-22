@@ -10,9 +10,9 @@ include "config/config.php";
   <meta charset="UTF-8">
   <title>Login with Qrcode</title>
   <style>
-  fieldset {
-    display: none;
-  }
+    fieldset {
+      display: none;
+    }
   </style>
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- scanner -->
@@ -42,11 +42,9 @@ include "config/config.php";
       <ul>
         <li v-if="cameras.length === 0" class="empty">No cameras found</li>
         <li v-for="camera in cameras">
-          <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active"><input type="radio"
-              class="align-middle mr-1" checked> {{ formatName(camera.name) }}</span>
+          <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active"><input type="radio" class="align-middle mr-1" checked> {{ formatName(camera.name) }}</span>
           <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
-            <a @click.stop="selectCamera(camera)"> <input type="radio"
-                class="align-middle mr-1">@{{ formatName(camera.name) }}</a>
+            <a @click.stop="selectCamera(camera)"> <input type="radio" class="align-middle mr-1">@{{ formatName(camera.name) }}</a>
           </span>
         </li>
       </ul>
@@ -173,37 +171,37 @@ include "config/config.php";
     </div>
 
     <div class="photo">
-      <img src="img/tfme.jpg" alt="TFME Photo">
-      <img src="img/poltek.png" alt="poltek" class="poltek">
+      <img src="img/kemakom.png" alt="TFME Photo" style="width: 100px; height: 100px;">
+      <img src="img/upi.png" alt="poltek" style="width: 100px; height: 100px;" class="poltek">
     </div>
 
     <?php if (isset($dataGanda)) : ?>
-    <script>
-    setTimeout(function() {
-      swal.fire({
-        title: "Wow!",
-        text: "Message!",
-        icon: "error",
-        timer: 2000,
-        showConfirmButton: false
-      }, function() {
-        window.location = "index.php";
-      });
-    }, 1000);
-    </script>
+      <script>
+        setTimeout(function() {
+          swal.fire({
+            title: "Wow!",
+            text: "Message!",
+            icon: "error",
+            timer: 2000,
+            showConfirmButton: false
+          }, function() {
+            window.location = "index.php";
+          });
+        }, 1000);
+      </script>
     <?php endif; ?>
 
     <?php if (isset($berhasil)) : ?>
-    <script>
-    swal.fire("Completed!", "Happy Working <?= $username; ?> :) ", "success");
-    </script>
-    <script type="text/javascript">
-    setTimeout(function() {
-      window.top.location = "index.php"
-    }, 4500);
-    </script>
+      <script>
+        swal.fire("Completed!", "Happy Working <?= $username; ?> :) ", "success");
+      </script>
+      <script type="text/javascript">
+        setTimeout(function() {
+          window.top.location = "index.php"
+        }, 4500);
+      </script>
 
-    <?php
+      <?php
 
 
       if ($username == 'resa') {
@@ -277,107 +275,107 @@ include "config/config.php";
 
     <!-- voice -->
     <?php if (isset($tessha)) :  ?>
-    <audio autoplay>
-      <source src="voice/tessha.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/tessha.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($liza)) :  ?>
-    <audio autoplay>
-      <source src="voice/liza.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/liza.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($pragus)) :  ?>
-    <audio autoplay>
-      <source src="voice/pragus.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/pragus.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($rangga)) :  ?>
-    <audio autoplay>
-      <source src="voice/rangga.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/rangga.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
 
     <?php if (isset($adi)) :  ?>
-    <audio autoplay>
-      <source src="voice/adi.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/adi.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($fajar)) :  ?>
-    <audio autoplay>
-      <source src="voice/fajar.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/fajar.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
 
     <?php if (isset($resa)) :  ?>
-    <audio autoplay>
-      <source src="voice/resa.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/resa.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($widya)) :  ?>
-    <audio autoplay>
-      <source src="voice/widya.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/widya.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($fara)) :  ?>
-    <audio autoplay>
-      <source src="voice/fara.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/fara.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($rachmat)) :  ?>
-    <audio autoplay>
-      <source src="voice/rachmat.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/rachmat.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($diana)) :  ?>
-    <audio autoplay>
-      <source src="voice/diana.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/diana.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($rian)) :  ?>
-    <audio autoplay>
-      <source src="voice/rian.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/rian.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($anawati)) :  ?>
-    <audio autoplay>
-      <source src="voice/anawati.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/anawati.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($putri)) :  ?>
-    <audio autoplay>
-      <source src="voice/putri.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/putri.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($garda)) :  ?>
-    <audio autoplay>
-      <source src="voice/garda.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/garda.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($hidayat)) :  ?>
-    <audio autoplay>
-      <source src="voice/hidayat.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/hidayat.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
     <?php if (isset($tama)) :  ?>
-    <audio autoplay>
-      <source src="voice/tama.mp3" type="audio/mpeg">
-    </audio>
+      <audio autoplay>
+        <source src="voice/tama.mp3" type="audio/mpeg">
+      </audio>
     <?php endif; ?>
 
 

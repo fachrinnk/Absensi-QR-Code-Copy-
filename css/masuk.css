@@ -40,15 +40,15 @@ video{
 
 .photo img{
     position: absolute;
-    width: 160px;
-    height: 100px;
+   /* width: 160px;
+    height: 100px; */
     top: 10px;
     border-radius: 10px;
     right: 20px;
 }
 .photo img.poltek{
     left: 20px;
-    height: 120px;
+    /*height: 120px;*/
 }
 
 /* Dashboard Absen */

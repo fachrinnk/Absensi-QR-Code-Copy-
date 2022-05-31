@@ -188,7 +188,7 @@ include "config/config.php";
     <a href="tataUsaha/index.php" class="btn btn-light"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
     <a href="index.php" class="btn btn-light"><i class="fas fa-qrcode mr-2"></i>Check-in attendance</a>
     <div class="footer d-flex justify-content-center">
-      <p>Created By &copy; Rachmat Fauzan</p>
+      <p>Created By &copy; TIM 6 RPL</p>
     </div>
 
     <div class="photo">

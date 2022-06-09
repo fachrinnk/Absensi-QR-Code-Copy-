@@ -192,8 +192,8 @@ include "config/config.php";
     </div>
 
     <div class="photo">
-      <img src="img/tfme.jpg" alt="TFME Photo">
-      <img src="img/poltek.png" alt="poltek" class="poltek">
+      <img src="img/kemakom.png" alt="TFME Photo" style="width: 100px; height: 100px;">
+      <img src="img/upi.png" alt="poltek" style="width: 100px; height: 100px;" class="poltek">
     </div>
 
     <?php if (isset($berhasil)) : ?>

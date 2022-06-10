@@ -9,19 +9,42 @@ if (!isset($_SESSION['data'])) {
 
 // registrasi
 if (isset($_POST['daftar'])) {
+
+    $nosuccess = 0;
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     $nim = $_POST['nim'];
-    $status = $_POST['status'];
-
-    $query = mysqli_query($conn, "INSERT INTO tb_user(id, username, password, IsActive, IsLogin, nim, level_user) 
-    VALUES ('','$username','$password','1','','$nim','$status')");
-    if ($query) {
-        $berhasil = true;
-    } else {
-        echo "gagal";
+    // var_dump($_POST['status']);
+    // exit;
+    if(empty($_POST['status'])) { 
+      echo " <script>
+      alert ('Harap isi level user !!');
+      </script>";
+      $nosuccess++;
+    }else{
+      $status = $_POST['status'];
     }
-}
+    // var_dump($status);
+    // exit;
+    if(!ctype_digit($nim)){
+      echo" <script>
+          alert ('NIM harus berupa digit !');
+      </script>";
+      $nosuccess++;
+    }
+    if($nosuccess === 0){
+      $query = mysqli_query($conn, "INSERT INTO tb_user(id, username, password, IsActive, IsLogin, nim, level_user) 
+      VALUES ('','$username','$password','1','0','$nim','$status')");
+      if ($query) {
+          $berhasil = true;
+      } else {
+          echo " <script>
+              alert ('Data gagal diinput !!');
+          </script>";
+      }
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +81,7 @@ if (isset($_POST['daftar'])) {
     <form action="" method="post" class="d-flex align-items-center flex-column">
       <div class="row">
         <label for="">username</label><br>
-        <input type="text" class="form-control" name="username" placeholder="username" autofocus>
+        <input type="text" class="form-control" name="username" placeholder="username" autofocus required>
       </div>
       <div class="row">
         <label for="">password</label><br>
@@ -71,8 +94,8 @@ if (isset($_POST['daftar'])) {
       <div class="row">
         <label for="status">Status</label><br>
 
-        <select name="status" class="form-control" id="status">
-          <option value="#" disabled selected>--- Choose One ---</option>
+        <select class="form-control" name="status" id="status">
+          <option value="" disabled selected>--- Choose One ---</option>
           <optgroup>
             <option value="mahasiswa">Mahasiswa</option>
             <option value="dosen">Dosen</option>

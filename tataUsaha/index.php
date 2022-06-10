@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
           </tr>
           <tr>
             <td>
-              <button type="submit" name="login" id="login" class="btn btn-secondary"><i
+              <button type="submit" name="login" id="login" class="btn btn-warning"><i
                   class="fas fa-sign-in-alt mr-2"></i>Login</button>
               <a href="../index.php" class="text-light">QRCode</a>
             </td>

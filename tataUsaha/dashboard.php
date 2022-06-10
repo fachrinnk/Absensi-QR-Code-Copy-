@@ -43,39 +43,39 @@ if (!isset($_SESSION['data'])) {
             if ($level_tu) {
             ?>
       <!-- <li>
-                <a href="absen-dosen.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Dosen</a>
+                <a href="absen-dosen.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Dosen</a>
             </li> -->
       <li>
-        <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Check-in Attendance</a>
+        <a href="absen-mhs.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Check-in Attendance</a>
       </li>
       <li>
-        <a href="absen-out.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Check-out Attendance</a>
+        <a href="absen-out.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Check-out Attendance</a>
       </li>
       <li>
-        <a href="tambah-user.php" class="btn btn-secondary m-3"><i class="fas fa-user-plus mr-2"></i>Tambah User</a>
+        <a href="tambah-user.php" class="btn btn-warning text-dark m-3"><i class="fas fa-user-plus mr-2"></i>Tambah User</a>
       </li>
       <?php } else if ($level_dsn) { ?>
       <!-- dosen -->
       <li>
-        <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
+        <a href="absen-mhs.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
           Mahasiswa</a>
       </li>
       <li>
-        <a href="absen-out.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check Out
+        <a href="absen-out.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check Out
           Mahasiswa</a>
       </li>
       <li>
-        <a href="absen-dosen.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
+        <a href="absen-dosen.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
           Saya</a>
       </li>
       <?php } else if ($level_mhs) { ?>
       <!-- mahasiswa -->
       <li>
-        <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
+        <a href="absen-mhs.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check In
           Saya</a>
       </li>
       <li>
-        <a href="absen-out.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check Out
+        <a href="absen-out.php" class="btn btn-warning text-dark m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Check Out
           Saya</a>
       </li>
       <?php } ?>
